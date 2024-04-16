@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="GotsJS Documentation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GotsJS Documentation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="gotsjs-global.css">
+  <link rel="stylesheet" href="gotsjs-doc.css">
+  <link rel="author" href="humans.txt">
+</head>
+<body>
+  <div class="doc__bg"></div>
+  <nav class="header">
+    <h1 class="logo">Gots<span class="logo__thin">JS</span></h1>
+    <ul class="menu">
+      <div class="menu__item toggle"><span></span></div>
+      <li class="menu__item"><a href="https://github.com/sprdgx/gotsjs" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+      <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+    </ul>
+  </nav>
+  <div class="wrapper">
+    <aside class="doc__nav">
+      <ul>
+        <li class="js-btn selected">Get Started</li>
+        <li class="js-btn">Configuration</li>
+        <li class="js-btn">Explanation</li>
+        <li class="js-btn">WELCOME</li>
+      </ul>
+    </aside>
+    <article class="doc__content">
+      <section class="js-section">
+        <h3 class="section__title">Get Started</h3>
+        <p>
+          GotsJS simplifies TLS certificate generation and management, offering streamlined workflows and secure encryption options for a seamless experience.</p>
+        <h3 class="section__title">Installation</h3>
+        <div class="code__block code__block--notabs">
+          <pre class="code code--block">
+            <code>
+              $ npm install gotsjs
+            </code>
+          </pre>
+        </div>
+      </section>
+      <section class="js-section">
+        <h3 class="section__title">Configuration</h3>
+        <p>Discover how to configure GotsJS to tailor TLS certificate generation and manage TLS connections effectively.</p>
+        <table id="customers">
+          <tr>
+            <th>Options</th>
+            <th>Value</th>
+            <th>Default</th>
+          </tr>
+          <tr>
+            <td>certificatePath</td>
+            <td>Path to save the generated TLS certificate file.</td>
+            <td>'certificate.pem'</td>
+          </tr>
+          <tr>
+            <td>keyPath</td>
+            <td>Path to save the generated private key file.</td>
+            <td>'private_key.pem'</td>
+          </tr>
+          <tr>
+            <td>outputDir</td>
+            <td>Directory to save the generated certificate and key files.</td>
+            <td>'./certs'</td>
+          </tr>
+        </table>
+      </section>
+      <section class="js-section">
+          <h3 class="section__title">Explanation:</h3>
+          <ul class="explanation__list">
+            <li><strong>const gots = require('gotsjs')  :</strong> This line imports the GotsJS library into our code, allowing us to use its functions and methods.</li>
+            <li><strong>gots.generateAndSaveCert('certificate.pem', 'private_key.pem', './certs')  :</strong> Here, we call the <code>generateAndSaveCert</code> function from GotsJS, passing in the file names for the certificate and private key, along with the output directory.</li>
+            <li><strong>console.log('Certificate and Private Key generation initiated.') :</strong> Finally, we use <code>console.log</code> to print a message indicating that the certificate and private key generation process has been initiated.</li>
+          </ul>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                const gots = require('gotsjs');
+
+                // Generate and save certificate and private key using gots library
+                gots.generateAndSaveCert('certificate.pem', 'private_key.pem', './certs');
+
+                // Print a message indicating completion
+                console.log('Certificate and Private Key generation initiated.');
+              </code>
+            </pre>
+          </div>
+          <p>This example demonstrates how to use GotsJS to generate TLS certificates and save them in a specified directory. Let's break down the code:</p>
+        </section>
+      <section class="js-section">
+        <h3 class="section__title">WELCOME TO GOTSJS</h3>
+        <p>Thank you for choosing GotsJS for your TLS certificate generation and management! If you have any questions, need assistance, or want to contribute to the project, feel free to reach out on <a href="https://github.com/sprdgx/GotsJS" target="_blank" class="link link--dark">Github</a> . Happy secure communication with GotsJS! 🌟.</p>
+      </section>
+    </article>
+  </div>
+
+  <footer class="footer">GotsJS - A JavaScript library for TLS certificate generation and TLS connection management</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="gotsjs.js"></script>
+</body>
+</html>
