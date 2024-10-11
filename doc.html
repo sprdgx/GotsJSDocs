@@ -7,16 +7,170 @@
   <title>GotsJS Documentation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-  <link rel="stylesheet" href="gotsjs-global.css">
-  <link rel="stylesheet" href="gotsjs-doc.css">
   <link rel="author" href="humans.txt">
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .doc__bg {
+      background-color: #eef2f7;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    nav.header {
+      background-color: #2c3e50;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    nav.header .logo {
+      font-size: 1.5rem;
+    }
+
+    nav.header .logo__thin {
+      font-weight: 300;
+    }
+
+    ul.menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    ul.menu li {
+      margin-right: 15px;
+    }
+
+    ul.menu li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .wrapper {
+      display: flex;
+    }
+
+    .doc__nav {
+      background-color: #34495e;
+      color: white;
+      padding: 2rem;
+      min-width: 250px;
+      height: 100vh;
+    }
+
+    .doc__nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .doc__nav ul li {
+      margin: 15px 0;
+      cursor: pointer;
+    }
+
+    .doc__nav ul li.selected {
+      font-weight: 700;
+    }
+
+    .doc__content {
+      padding: 2rem;
+      width: 100%;
+    }
+
+    h3.section__title {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .code__block {
+      background-color: #f1f1f1;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    table th, table td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    #customers th {
+      background-color: #f2f2f2;
+    }
+
+    footer.footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2c3e50;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .link--dark {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    .link--dark:hover {
+      text-decoration: underline;
+    }
+
+    /* Toggle Button */
+    .toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .toggle {
+        display: block;
+        cursor: pointer;
+      }
+
+      .menu__item {
+        display: none;
+      }
+
+      .menu__item.toggle {
+        display: block;
+      }
+
+      .menu__item.active {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="doc__bg"></div>
   <nav class="header">
     <h1 class="logo">Gots<span class="logo__thin">JS</span></h1>
     <ul class="menu">
-      <div class="menu__item toggle"><span></span></div>
+      <div class="menu__item toggle"><span>☰</span></div>
       <li class="menu__item"><a href="https://github.com/sprdgx/gotsjs" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
       <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
     </ul>
@@ -71,27 +225,23 @@
         </table>
       </section>
       <section class="js-section">
-          <h3 class="section__title">Explanation:</h3>
-          <ul class="explanation__list">
-            <li><strong>const gots = require('gotsjs')  :</strong> This line imports the GotsJS library into our code, allowing us to use its functions and methods.</li>
-            <li><strong>gots.generateAndSaveCert('certificate.pem', 'private_key.pem', './certs')  :</strong> Here, we call the <code>generateAndSaveCert</code> function from GotsJS, passing in the file names for the certificate and private key, along with the output directory.</li>
-            <li><strong>console.log('Certificate and Private Key generation initiated.') :</strong> Finally, we use <code>console.log</code> to print a message indicating that the certificate and private key generation process has been initiated.</li>
-          </ul>
-          <div class="code__block code__block--notabs">
-            <pre class="code code--block">
-              <code>
-                const gots = require('gotsjs');
-
-                // Generate and save certificate and private key using gots library
-                gots.generateAndSaveCert('certificate.pem', 'private_key.pem', './certs');
-
-                // Print a message indicating completion
-                console.log('Certificate and Private Key generation initiated.');
-              </code>
-            </pre>
-          </div>
-          <p>This example demonstrates how to use GotsJS to generate TLS certificates and save them in a specified directory. Let's break down the code:</p>
-        </section>
+        <h3 class="section__title">Explanation:</h3>
+        <ul class="explanation__list">
+          <li><strong>const gots = require('gotsjs') :</strong> This line imports the GotsJS library into our code, allowing us to use its functions and methods.</li>
+          <li><strong>gots.generateAndSaveCert('certificate.pem', 'private_key.pem', './certs') :</strong> Here, we call the <code>generateAndSaveCert</code> function from GotsJS, passing in the file names for the certificate and private key, along with the output directory.</li>
+          <li><strong>console.log('Certificate and Private Key generation initiated.') :</strong> Finally, we use <code>console.log</code> to print a message indicating that the certificate and private key generation process has been initiated.</li>
+        </ul>
+        <div class="code__block code__block--notabs">
+          <pre class="code code--block">
+            <code>
+              const gots = require('gotsjs');
+              gots.generateAndSaveCert('certificate.pem', 'private_key.pem', './certs');
+              console.log('Certificate and Private Key generation initiated.');
+            </code>
+          </pre>
+        </div>
+        <p>This example demonstrates how to use GotsJS to generate TLS certificates and save them in a specified directory. Let's break down the code:</p>
+      </section>
       <section class="js-section">
         <h3 class="section__title">WELCOME TO GOTSJS</h3>
         <p>Thank you for choosing GotsJS for your TLS certificate generation and management! If you have any questions, need assistance, or want to contribute to the project, feel free to reach out on <a href="https://github.com/sprdgx/GotsJS" target="_blank" class="link link--dark">Github</a> . Happy secure communication with GotsJS! 🌟.</p>
@@ -100,8 +250,38 @@
   </div>
 
   <footer class="footer">GotsJS - A JavaScript library for TLS certificate generation and TLS connection management</footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <script src="gotsjs.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      hljs.initHighlightingOnLoad();
+
+      const navItems = document.querySelectorAll(".js-btn");
+      const sections = document.querySelectorAll(".js-section");
+
+      navItems.forEach((btn, index) => {
+        btn.addEventListener("click", function() {
+          // Remove selected class from all buttons
+          navItems.forEach(item => item.classList.remove("selected"));
+          // Add selected class to the clicked button
+          this.classList.add("selected");
+
+          // Hide all sections
+          sections.forEach(section => section.style.display = "none");
+          // Show the corresponding section
+          sections[index].style.display = "block";
+        });
+      });
+
+      // Initially show the first section
+      sections.forEach((section, index) => {
+        if (index === 0) {
+          section.style.display = "block";
+        } else {
+          section.style.display = "none";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
